@@ -26,7 +26,7 @@ let Timer = 0;
 let Score = 0;
 let level = 0;
 let bestScore = 0;
-let difficult = 1;
+let difficult = 0.1;
 // Счет и уровень сложности
 
 var gameOver = false;
@@ -64,13 +64,6 @@ let cloudX = -150;
 let bombHeight = 45;
 
 let explosionPosition = [1000, 1000, 1000, 1000, 1000, 1000, 1000];
-
-//sounds
-var music = new Audio();
-music.preload = 'auto';
-music.src = "sounds/music.mp3";
-music.play();
-//sounds
 
 document.getElementById("auf").style.display = "none";
 
@@ -268,7 +261,7 @@ function scoreEvent()
     	level += 1;
     	Timer = 0;
     }
-    if(level == 5){
+    if(level == 1){
     	objSpeed += difficult;
     	level = 0;
     }
@@ -382,7 +375,7 @@ function draw(){
     // Падающие обьекты
 
     // Вызов остальных функций
-      	  spawnExplosionOne();
+      spawnExplosionOne();
   	  spawnExplosionTwo();
   	  spawnExplosionThree();
   	  spawnExplosionFour();
@@ -394,6 +387,7 @@ function draw(){
   	  drawEnemyFour();
   	  drawPos();
   	  scoreEvent();
+
   	  // Вызов остальных функций
   	}
 
